@@ -48,7 +48,9 @@ namespace LinkShortener.Controllers
                 if (dataDict == null || !dataDict.ContainsKey(shortenUrl))
                     return NotFound();
                 else
-                    return Ok(dataDict[shortenUrl]);
+                {
+                    return new RedirectResult(dataDict[shortenUrl]);
+                }
             }
             catch (Exception ex)
             {

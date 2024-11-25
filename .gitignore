@@ -1,0 +1,45 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos do Visual Studio
+.vs/
+.vscode/
+.idea/
+# Arquivos específicos de usuário do Visual Studio
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Build artifacts
+bin/
+obj/
+
+# Pacotes NuGet
+*.nupkg
+*.snupkg
+# Diretórios de pacotes
+packages/
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários
+*.tmp
+*.bak
+*.swp
+
+# Arquivos de configuração local (não versionados)
+appsettings.Development.json
+appsettings.Local.json
+
+# Arquivos de compilação
+*.dll
+*.exe
+*.pdb
+
+
+# Dependências de pacote
+project.lock.json
+project.fragment.lock.json

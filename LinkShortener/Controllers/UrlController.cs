@@ -8,11 +8,8 @@ namespace LinkShortener.Controllers
     [Route("api/[controller]")]
     public class UrlController : ControllerBase
     {
-        private readonly IMemoryCache _memoryCache;
-        private const string _cacheKey = "LinksDict";
-        public UrlController(IMemoryCache memoryCache)
+        public UrlController()
         {
-            _memoryCache = memoryCache;
         }
 
         [HttpPost("Shortenlink")]
@@ -20,17 +17,8 @@ namespace LinkShortener.Controllers
         {
             try
             {
-                var dataDict = _memoryCache.Get<Dictionary<string, string>>(_cacheKey) ?? new Dictionary<string, string>();
 
-                string baseUrl = "talita@estagiaria/";
-                string guid = Guid.NewGuid().ToString().Substring(0, 1);
-                string shortenUrl = baseUrl + guid;
-
-                dataDict[shortenUrl] = longUrl;
-
-                _memoryCache.Set(_cacheKey, dataDict);
-
-                return Ok(shortenUrl);
+                return Ok();
             }
             catch (Exception ex)
             {
@@ -43,14 +31,7 @@ namespace LinkShortener.Controllers
         {
             try
             {
-                var dataDict = _memoryCache.Get<Dictionary<string, string>>(_cacheKey);
-
-                if (dataDict == null || !dataDict.ContainsKey(shortenUrl))
-                    return NotFound();
-                else
-                {
-                    return new RedirectResult(dataDict[shortenUrl]);
-                }
+                return new RedirectResult(shortenUrl);
             }
             catch (Exception ex)
             {

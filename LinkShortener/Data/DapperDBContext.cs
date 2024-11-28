@@ -59,5 +59,25 @@
                 throw;
             }
         }
+
+        public async Task<string> CheckUrlExists(string longUrl)
+        {
+            const string query = "SELECT shorten_url FROM URL_MAPPINGS WHERE long_url = @LongUrl";
+
+            try
+            {
+                using (var connection = CreateConnection())
+                {
+                    var parameters = new { LongUrl = longUrl };
+                    string shortenUrl = await connection.QuerySingleOrDefaultAsync<string>(query, parameters);
+                    return shortenUrl;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao verificar URL: {ex.Message}");
+                throw;
+            }
+        }
     }
 }

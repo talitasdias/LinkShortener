@@ -20,12 +20,17 @@ namespace LinkShortener.Controllers
         {
             try
             {
+                var existingUrl = await _dapperDB.CheckUrlExists(longUrl);
+                if (existingUrl != null)
+                {
+                    return Ok(existingUrl);
+                }
+
                 string baseUrl = "talita@estagiaria/";
                 string guid = Guid.NewGuid().ToString().Substring(0, 1);
                 string shortenUrl = $"{baseUrl}{guid}";
 
                 bool isInserted = await _dapperDB.InsertUrl(shortenUrl, longUrl);
-
                 if (!isInserted)
                 {
                     return StatusCode(500, new { message = "Falha ao inserir URL no banco de dados." });

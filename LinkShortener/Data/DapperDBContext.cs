@@ -1,4 +1,4 @@
-﻿namespace LinkShortener.Data
+﻿/*namespace LinkShortener.Data
 {
     using Dapper;
     using System.Data.SQLite;
@@ -80,4 +80,4 @@
             }
         }
     }
-}
+}*/

@@ -6,11 +6,13 @@ Thumbs.db
 .vs/
 .vscode/
 .idea/
+
 # Arquivos específicos de usuário do Visual Studio
 *.user
 *.userosscache
 *.suo
 *.sln.docstates
+*.csproj.user
 
 # Build artifacts
 bin/
@@ -19,8 +21,8 @@ obj/
 # Pacotes NuGet
 *.nupkg
 *.snupkg
-# Diretórios de pacotes
 packages/
+nuget.config
 
 # Arquivos de log
 *.log
@@ -29,6 +31,8 @@ packages/
 *.tmp
 *.bak
 *.swp
+*.tlog
+*.cache
 
 # Arquivos de configuração local (não versionados)
 appsettings.Development.json
@@ -39,7 +43,9 @@ appsettings.Local.json
 *.exe
 *.pdb
 
-
 # Dependências de pacote
 project.lock.json
 project.fragment.lock.json
+
+# Entity Framework Migrations
+Migrations/
